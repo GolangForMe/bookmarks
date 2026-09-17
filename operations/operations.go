@@ -2,6 +2,8 @@ package operations
 
 import "fmt"
 
+type BookmarkMap = map[int]string
+
 func InputBookmark() string {
 	var value string
 	fmt.Println("Введите название закладки:")
@@ -16,7 +18,7 @@ func InputKey() int {
 	return value
 }
 
-func GetAllBookmarks(bookmarks map[int]string) {
+func GetAllBookmarks(bookmarks BookmarkMap) {
 	if len(bookmarks) == 0 {
 		fmt.Println("Список закладок пустой!")
 	} else {
@@ -27,7 +29,7 @@ func GetAllBookmarks(bookmarks map[int]string) {
 	}
 }
 
-func AddNewBookmark(bookmarks map[int]string, bookmark string) {
+func AddNewBookmark(bookmarks BookmarkMap, bookmark string) {
 	maxKey := 0
 	for key := range bookmarks {
 		if key > maxKey {
@@ -38,7 +40,7 @@ func AddNewBookmark(bookmarks map[int]string, bookmark string) {
 	fmt.Println("Закладка успешно создана!")
 }
 
-func DeleteBookmark(bookmarks map[int]string, bookmarkKey int) {
+func DeleteBookmark(bookmarks BookmarkMap, bookmarkKey int) {
 	msg := fmt.Sprintf("Закладка с ключом %d не найдена", bookmarkKey)
 
 	if _, ok := bookmarks[bookmarkKey]; ok {
