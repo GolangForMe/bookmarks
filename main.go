@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	bookmarks := make(map[int]string)
+	bookmarks := make(operations.BookmarkMap)
 	helpers.Greeting()
 
 outerLoop:
